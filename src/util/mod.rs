@@ -10,6 +10,7 @@ use nom::IResult;
 use nom::Parser as _;
 
 pub mod dt;
+pub mod interchange;
 pub mod tm;
 
 pub fn is_equal_payload<T: PartialEq>(src: &Transmission<T>, target: &Transmission<T>) -> bool {

@@ -3,7 +3,7 @@ use super::*;
 #[test]
 fn parse_834() {
     //source: https://github.com/EdiFabric/X12.NET/blob/master/Files/HIPAA/BenefitEnrollment.txt
-    let str = r#"ISA*00*          *00*          *ZZ*386028429      *30*382328142      *050221*0602*U*00501*000012345*0*P*:~
+    let input_str = r#"ISA*00*          *00*          *ZZ*386028429      *30*382328142      *050221*0602*U*00501*000012345*0*P*:~
 GS*BE*386028429*382328142*20050221*0602*000012345*X*005010X220A1~
 ST*834*12345*005010X220A1~
 BGN*00*12456*19980520*1200****2~
@@ -28,7 +28,7 @@ DTP*348*D8*19960601~
 SE*21*12345~
 GE*1*000012345~
 IEA*1*000012345~"#;
-    let (rest, obj) = Transmission::<_834>::parse(&str).unwrap();
+    let (rest, obj) = Transmission::<_834>::parse(input_str).unwrap();
     println!("{rest}");
     println!("{obj:?}");
 }
@@ -36,7 +36,7 @@ IEA*1*000012345~"#;
 #[test]
 fn render_834() {
     //source: https://github.com/EdiFabric/X12.NET/blob/master/Files/HIPAA/BenefitEnrollment.txt
-    let str = r#"ISA*00*          *00*          *ZZ*386028429      *30*382328142      *050221*0602*U*00501*000012345*0*P*:~
+    let input_str = r#"ISA*00*          *00*          *ZZ*386028429      *30*382328142      *050221*0602*U*00501*000012345*0*P*:~
 GS*BE*386028429*382328142*20050221*0602*000012345*X*005010X220A1~
 ST*834*12345*005010X220A1~
 BGN*00*12456*19980520*1200****2~
@@ -262,13 +262,13 @@ IEA*1*000012345~
         },
     };
     let obj_str = format!("{obj}");
-    assert_eq!(str, obj_str);
+    assert_eq!(input_str, obj_str);
 }
 
 #[test]
 fn parse_834_2() {
     // source: https://www.emedny.org/hipaa/5010/transactions/834_sample_files/MCE834Sample_2.txt
-    let str = r#"ISA*00*          *00*          *ZZ*EMEDNYMCR      *ZZ*8-DIGIT PLAN ID*191125*1409*^*00501*193290002*0*T*:~
+    let input_str = r#"ISA*00*          *00*          *ZZ*EMEDNYMCR      *ZZ*8-DIGIT PLAN ID*191125*1409*^*00501*193290002*0*T*:~
 GS*BE*EMEDNYMCR*ETIN*20191125*140914*193290002*X*005010X220A1~
 ST*834*193290001*005010X220A1~
 BGN*00*1932900000000002XF1932900000000001*20191125*140914****2~
@@ -808,7 +808,7 @@ LE*2700~
 SE*99*193290007~
 GE*7*193290002~
 IEA*1*193290002~"#;
-    let (rest, obj) = Transmission::<_834>::parse(&str).unwrap();
+    let (rest, obj) = Transmission::<_834>::parse(input_str).unwrap();
     println!("{rest}");
     println!("{obj:?}");
 }
@@ -816,7 +816,7 @@ IEA*1*193290002~"#;
 #[test]
 fn parse_834_3() {
     // source:https://www.emedny.org/hipaa/5010/transactions/834_sample_files/MCE834Sample_verification.txt
-    let str = r#"ISA*00*          *00*          *ZZ*EMEDNYVER      *ZZ*8-DIGIT PLAN ID*191119*2020*^*00501*193230001*0*T*:~
+    let input_str = r#"ISA*00*          *00*          *ZZ*EMEDNYVER      *ZZ*8-DIGIT PLAN ID*191119*2020*^*00501*193230001*0*T*:~
 GS*BE*EMEDNYVER*ETIN*20191119*202000*193230001*X*005010X220A1~
 ST*834*193230001*005010X220A1~
 BGN*00*1932300000000011XF1932300000000001*20191119*202004****4~
@@ -1065,7 +1065,7 @@ LE*2700~
 SE*68*193230003~
 GE*3*193230001~
 IEA*1*193230001~"#;
-    let (rest, obj) = Transmission::<_834>::parse(&str).unwrap();
+    let (rest, obj) = Transmission::<_834>::parse(input_str).unwrap();
     println!("{rest}");
     println!("{obj:?}");
 }
