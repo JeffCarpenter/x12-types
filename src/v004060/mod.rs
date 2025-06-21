@@ -16,9 +16,11 @@ mod test_350;
 mod test_355;
 #[cfg(test)]
 mod test_358;
+#[cfg(test)]
+pub mod test_util;
 
 /// Truck Import Manifest Customs Status Information (TS350)
-#[derive(Debug, Default, Clone, Serialize, Deserialize, DisplayX12)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize, PartialEq, Eq, DisplayX12)]
 pub struct TS350TruckCBPCustomsStatusInformation {
     pub st: ST,
     #[serde(skip_serializing_if = "Option::is_none")]

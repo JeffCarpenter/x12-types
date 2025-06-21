@@ -1,4 +1,4 @@
-use crate::v004010::Transmission;
+use crate::util::interchange::Transmission;
 use nom::bytes::complete::tag;
 use nom::bytes::complete::take_until;
 use nom::bytes::complete::take_while;
@@ -22,6 +22,11 @@ pub fn is_equal_payload<T: PartialEq>(src: &Transmission<T>, target: &Transmissi
         }
     }
     true
+}
+
+#[cfg(test)]
+pub fn load_fixture(name: &str) -> String {
+    std::fs::read_to_string(format!("test-data/{name}")).expect("fixture missing")
 }
 
 pub fn parse_line<'a>(input: &'a str, segment_name: &str) -> IResult<&'a str, Vec<&'a str>> {

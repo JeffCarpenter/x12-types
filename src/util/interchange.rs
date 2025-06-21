@@ -26,11 +26,21 @@ where
         let mut output = Transmission::default();
         let (rest, isa) = ISA::parse(input)?;
         output.isa = isa;
-        let (rest, gs) = GS::parse(rest)?;
-        let (rest, segments) = many0(T::parse).parse(rest)?;
-        let (rest, ge) = GE::parse(rest)?;
-        let fg = FunctionalGroup { gs, segments, ge };
-        output.functional_group.push(fg);
+        let mut rest = rest;
+        while let Ok((r, gs)) = GS::parse(rest) {
+            let (r, segments) = many0(T::parse).parse(r)?;
+            let (r, ge) = GE::parse(r)?;
+            output
+                .functional_group
+                .push(FunctionalGroup { gs, segments, ge });
+            rest = r;
+        }
+        if output.functional_group.is_empty() {
+            return Err(nom::Err::Error(nom::error::Error::new(
+                rest,
+                nom::error::ErrorKind::Tag,
+            )));
+        }
         let (rest, iea) = IEA::parse(rest)?;
         output.iea = iea;
         Ok((rest, output))

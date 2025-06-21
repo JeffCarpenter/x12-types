@@ -101,7 +101,5 @@ SE*93*07504123~
 GE*1*1~
 IEA*1*004075123~"#;
     let (rest, obj) = Transmission::<_835>::parse(input_str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }

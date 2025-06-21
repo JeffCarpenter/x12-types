@@ -49,8 +49,6 @@ SE*41*000000055~
 GE*1*5555~
 IEA*1*000005555~"#;
     let (rest, obj) = Transmission::<_837>::parse(input_str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
 }
 
 #[test]
@@ -104,8 +102,6 @@ SE*43*0000000044~
 GE*1*4444~
 IEA*1*000004444~"#;
     let (rest, obj) = Transmission::<_837>::parse(input_str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
 }
 
 #[test]
@@ -157,8 +153,6 @@ SE*41*1239~
 GE*1*101~
 IEA*1*000000101~"#;
     let (rest, obj) = Transmission::<_837>::parse(input_str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
 }
 
 #[test]
@@ -199,8 +193,6 @@ SV1*HC:34196*50*UN*1***1~
 DTP*472*D8*20170715~
 SE*35*000000001~"#;
     let (rest, obj) = _837::parse(input_str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
 }
 
 #[test]
@@ -262,6 +254,4 @@ SE*54*0001~
 GE*1*1~
 IEA*1*000000001~"#;
     let (rest, obj) = _837::parse(input_str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
 }
