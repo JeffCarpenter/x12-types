@@ -3,7 +3,7 @@ use super::*;
 #[test]
 fn parse_837() {
     //source: https://www.texaschildrenshealthplan.org/sites/default/files/pdf/5010_X12_837P_Professional_CompGuide_V1.1.pdf
-    let str = r#"ISA*00* *00* *ZZ*133052274 *ZZ*TXCSM0001 *160308*2119*^*00501*000005555*0*P*:~
+    let input_str = r#"ISA*00* *00* *ZZ*133052274 *ZZ*TXCSM0001 *160308*2119*^*00501*000005555*0*P*:~
 GS*HC*133052274*TXCSM0001*20160308*211916*5555*X*005010X222A1~
 ST*837*000000055*005010X222A1~
 BHT*0001*00*00011111*20160308*211916*CH~
@@ -48,15 +48,13 @@ REF*6R*4~
 SE*41*000000055~
 GE*1*5555~
 IEA*1*000005555~"#;
-    let (rest, obj) = Transmission::<_837>::parse(&str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, obj) = Transmission::<_837>::parse(input_str).unwrap();
 }
 
 #[test]
 fn parse_837_2() {
     //source: https://www.texaschildrenshealthplan.org/sites/default/files/pdf/5010_X12_837P_Professional_CompGuide_V1.1.pdf
-    let str = r#"ISA*00* *00* *ZZ*133052274 *ZZ*752280001 *160527*2139*^*00501*000004444*0*P*:~
+    let input_str = r#"ISA*00* *00* *ZZ*133052274 *ZZ*752280001 *160527*2139*^*00501*000004444*0*P*:~
 GS*HC*133052274*752280001*20160527*213905*4444*X*005010X222A1~
 ST*837*000000044*005010X222A1~
 BHT*0001*00*00018091A*20160527*213905*CH~
@@ -103,15 +101,13 @@ NTE*ADD*207R00000X~
 SE*43*0000000044~
 GE*1*4444~
 IEA*1*000004444~"#;
-    let (rest, obj) = Transmission::<_837>::parse(&str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, obj) = Transmission::<_837>::parse(input_str).unwrap();
 }
 
 #[test]
 fn parse_837_3() {
     //source: https://support.edifabric.com/hc/en-us/articles/360000369472-HIPAA-5010-837P-Professional-Claim
-    let str = r#"ISA*00*          *00*          *ZZ*1234567        *ZZ*11111          *170508*1141*^*00501*000000101*1*P*:~
+    let input_str = r#"ISA*00*          *00*          *ZZ*1234567        *ZZ*11111          *170508*1141*^*00501*000000101*1*P*:~
 GS*HC*XXXXXXX*XXXXX*20170617*1741*101*X*005010X222A1~
 ST*837*1239*005010X222A1~
 BHT*0019*00*010*20170617*1741*CH~
@@ -156,15 +152,13 @@ DTP*472*D8*20151124~
 SE*41*1239~
 GE*1*101~
 IEA*1*000000101~"#;
-    let (rest, obj) = Transmission::<_837>::parse(&str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, obj) = Transmission::<_837>::parse(input_str).unwrap();
 }
 
 #[test]
 fn parse_837_4() {
     //source: https://www.apex-healthsolutions.com/-/media/project/summacare/website/document-library/apex/837-5010-professional-companion-guide.pdf?la=en
-    let str = r#"ST*837*000000001*005010X222~
+    let input_str = r#"ST*837*000000001*005010X222~
 BHT*0019*00*000000001*20170715*0939*CH~
 NM1*41*2*CLEARINGHOUSE*****46*999999999~
 PER*IC*CLEARINGHOUSE*TE*8005555555~
@@ -198,15 +192,13 @@ LX*1~
 SV1*HC:34196*50*UN*1***1~
 DTP*472*D8*20170715~
 SE*35*000000001~"#;
-    let (rest, obj) = _837::parse(&str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, obj) = _837::parse(input_str).unwrap();
 }
 
 #[test]
 fn parse_837_5() {
     //source: https://www.apex-healthsolutions.com/-/media/project/summacare/website/document-library/apex/837-5010-professional-companion-guide.pdf?la=en
-    let str = r#"ST*837*0001*005010X222~
+    let input_str = r#"ST*837*0001*005010X222~
 BHT*0019*00*1*20170715*08280000*CH~
 NM1*41*2*SUGARHILL BILLING SERVICE*****46*00123~
 PER*IC*TECHNOLOGY SUPPORT CENTER*TE*3305554321~
@@ -261,7 +253,5 @@ DTP*573*D8*20170715~
 SE*54*0001~
 GE*1*1~
 IEA*1*000000001~"#;
-    let (rest, obj) = _837::parse(&str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, obj) = _837::parse(input_str).unwrap();
 }

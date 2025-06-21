@@ -36,8 +36,6 @@ SE*27*0001~
 GE*1*2510~
 IEA*1*000002510~"#;
     let (rest, obj) = Transmission::<_214>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }
 
@@ -74,7 +72,5 @@ SE*12*002~
 GE*2*001~
 IEA*1*001~"#;
     let (rest, obj) = Transmission::<_214>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }

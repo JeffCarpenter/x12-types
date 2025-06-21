@@ -24,8 +24,6 @@ SE*15*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
     let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }
 
@@ -49,8 +47,6 @@ SE*12*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
     let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }
 
@@ -74,8 +70,6 @@ SE*12*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
     let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }
 
@@ -101,8 +95,6 @@ SE*12*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
     let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }
 
@@ -125,7 +117,5 @@ SE*10*0001~
 GE*1*1~
 IEA*1*0000000012~"#;
     let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
     assert!(rest.is_empty());
 }

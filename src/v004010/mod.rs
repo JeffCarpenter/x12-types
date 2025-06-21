@@ -838,7 +838,6 @@ impl<'a> Parser<&'a str, _301, nom::error::Error<&'a str>> for _301 {
         let mut loop_n1 = vec![];
         let mut loop_rest = rest;
         while peek(opt(N1::parse)).parse(loop_rest)?.1.is_some() {
-            println!("n1");
             let (rest, n1) = opt(N1::parse).parse(loop_rest)?;
             let (rest, n2) = opt(N2::parse).parse(rest)?;
             let (rest, n3) = opt(N3::parse).parse(rest)?;
@@ -1667,21 +1666,16 @@ pub struct _322 {
 impl<'a> Parser<&'a str, _322, nom::error::Error<&'a str>> for _322 {
     fn parse(input: &'a str) -> IResult<&'a str, _322> {
         let mut output = _322::default();
-        println!("before ST");
         let (rest, obj) = ST::parse(input)?;
         output.st = obj;
-        println!("after ST");
         let (rest, obj) = opt(ZC1::parse).parse(rest)?;
         output.zc1 = obj;
-        println!("before Q5");
         let (rest, obj) = Q5::parse(rest)?;
         output.q5 = obj;
-        println!("after Q5");
         // loop n7
         let mut loop_n7 = vec![];
         let mut loop_rest = rest;
         while peek(opt(N7::parse)).parse(loop_rest)?.1.is_some() {
-            println!("loop n7");
             let (rest, n7) = N7::parse(loop_rest)?;
             let (rest, v4) = opt(V4::parse).parse(rest)?;
             let (rest, dtm) = many0(DTM::parse).parse(rest)?;
@@ -1741,7 +1735,6 @@ impl<'a> Parser<&'a str, _322, nom::error::Error<&'a str>> for _322 {
         }
         let rest = loop_rest;
         output.loop_n7 = loop_n7;
-        println!("before SE");
         let (rest, obj) = SE::parse(rest)?;
         output.se = obj;
         Ok((rest, output))
