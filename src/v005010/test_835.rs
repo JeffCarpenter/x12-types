@@ -3,7 +3,7 @@ use super::*;
 #[test]
 fn parse_835() {
     //source: https://www.1edisource.com/resources/edi-transactions-sets/edi-835/
-    let str = r#"ISA*01*0000000000*01*0000000000*ZZ*ABCDEFGHIJKLMNO*ZZ*123456789012345*101127*1719*U*00400*000003438*0*P*>~
+    let input_str = r#"ISA*01*0000000000*01*0000000000*ZZ*ABCDEFGHIJKLMNO*ZZ*123456789012345*101127*1719*U*00400*000003438*0*P*>~
 GS*HP*ABCCOM*01017*20110315*1005*1*X*004010X091A1~
 ST*835*07504123~
 BPR*H*5.75*C*NON************20110315~
@@ -100,8 +100,6 @@ LQ*HE*MA92~
 SE*93*07504123~
 GE*1*1~
 IEA*1*004075123~"#;
-    let (rest, obj) = Transmission::<_835>::parse(&str).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_835>::parse(input_str).unwrap();
     assert!(rest.is_empty());
 }
