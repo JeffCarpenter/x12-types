@@ -117,10 +117,8 @@ fn parse_315() {
             _02: "000000001".to_string(),
         },
     };
-    let str = format!("{x}");
-    println!("{}", str);
+    let _ = format!("{x}");
     // let obj: Transmission<_315> = serde_x12::from_str(&new_input).unwrap();
-    // println!("{:?}", obj);
     // assert_eq!(x, obj);
 }
 
@@ -425,15 +423,13 @@ IEA*1*000000001~
 #[test]
 fn test_2() {
     let str = r#"ISA*00*          *00*          *ZZ*XXXX           *ZZ*XXXX           *221121*1110*U*00401*012359227*0*P*>~GS*QO*XXXX*XXXX*20221121*1110*12359218*X*004010~ST*315*33366799~B4***VA*20221114*1450**TCKU*724880*L**MAPTM*UN*7~N9*BM*52BUE013415X~N9*BN*2BUE013415~N9*EQ*TCKU7248999~Q2*9633999********242N***L*CAP SAN MALEAS~R4*L*UN*ARBUE*TERMINAL 4*AR~DTM*140*20221025*0255*LT~R4*T*UN*MAPTM*APM TERMINALS TANGER MED*MA~DTM*140*20221114*1450*LT~R4*D*UN*DEHAM*EUROGATE CONTAINER TERMI*DE~DTM*139*20221130*2300*LT~SE*13*33366742~GE*1*12359218~IEA*1*012359227~"#;
-    let (rest, obj) = Transmission::<_315>::parse(str).unwrap();
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_315>::parse(str).unwrap();
     assert!(rest.is_empty());
 }
 
 #[test]
 fn test_3() {
     let str = r#"ISA*00*          *00*          *ZZ*HAMSUD         *ZZ*GSCL           *221121*0751*U*00401*000720857*0*P*>~GS*QO*HAMSUD*GSCL*20221121*0751*720857*X*004010~ST*315*1883403~B4***UV*20221121*0124**MRSU*437163*L*45G1*MXZLO*UN*9~N9*4F*800992458*SAMSUNG SDS~N9*BM*SUDUN2SL008733AF~N9*BN*2SOL008733~N9*EQ*MRSU4371639~N9*SCA*SUDU~N9*SN*5512862~N9*WU*MAERSK STEPNICA~Q2*9352004********242S***L*MAERSK STEPNICA~R4*L*UN*KRPUS*PUSAN NEWPORT CONTAINER *KR~DTM*140*20221103*125500*LT~R4*D*UN*MXZLO*SSA MEXICO HOLDINGS*MX~DTM*140*20221120*230000*LT~R4*E*UN*MXQRO*QUERETARO*MX***QU~DTM*139*20221125*230000*LT~R4*5*UN*MXZLO*MANZANILLO~DTM*140*20221121*012400*LT~SE*19*1883403~GE*1*720857~IEA*1*000720857~"#;
-    let (rest, obj) = Transmission::<_315>::parse(str).unwrap();
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_315>::parse(str).unwrap();
     assert!(rest.is_empty());
 }
