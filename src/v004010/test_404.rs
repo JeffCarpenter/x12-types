@@ -54,7 +54,6 @@ GE*1*15113~
 IEA*1*000015113~
 "#;
     let (rest, obj) = Transmission::<_404>::parse(str).unwrap();
-    println!("{obj:?}");
     assert!(rest.is_empty());
     let s = format!("{obj}");
     assert_eq!(s, str);
@@ -117,7 +116,6 @@ GE*1*15623~
 IEA*1*000015623~
 "#;
     let (rest, obj) = Transmission::<_404>::parse(str).unwrap();
-    println!("{obj:?}");
     assert!(rest.is_empty());
     let s = format!("{obj}");
     assert_eq!(s, str);

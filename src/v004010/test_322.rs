@@ -23,9 +23,7 @@ N9*BM*A5GEMEN1976X~
 SE*15*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
-    let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_322>::parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -48,9 +46,7 @@ N9*BM*A5GEMEN1976X~
 SE*12*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
-    let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_322>::parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -73,9 +69,7 @@ N9*BM*A5GEMEN1976X~
 SE*12*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
-    let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_322>::parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -100,9 +94,7 @@ N9*BM*A5GEMEN1976X~
 SE*12*0001~
 GE*1*1000~
 IEA*1*053849086~"#;
-    let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_322>::parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -124,8 +116,6 @@ N9*X3*03*WHEEL~
 SE*10*0001~
 GE*1*1~
 IEA*1*0000000012~"#;
-    let (rest, obj) = Transmission::<_322>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_322>::parse(s).unwrap();
     assert!(rest.is_empty());
 }
