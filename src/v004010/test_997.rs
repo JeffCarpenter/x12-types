@@ -17,9 +17,7 @@ AK4*1**7*DP~
 AK5*R*4*5~
 AK9*R*1*1*0~
 SE*10*0001~"#;
-    let (rest, obj) = _997::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = _997::parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -34,9 +32,7 @@ AK2*850*103465911~
 AK5*R*4~
 AK9*R*2*2*0*5~
 SE*8*0001~"#;
-    let (rest, obj) = _997::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = _997::parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -55,9 +51,7 @@ ST*997*0002~
 AK1*SH*3~
 AK9*A*0*0*0~
 SE*4*0002~"#;
-    let (rest, obj) = many0(_997::parse).parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = many0(_997::parse).parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -70,8 +64,6 @@ AK2*850*0001~
 AK5*A~
 AK9*A*1*1*1~
 SE*6*0001~"#;
-    let (rest, obj) = _997::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = _997::parse(s).unwrap();
     assert!(rest.is_empty());
 }

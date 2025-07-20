@@ -34,11 +34,11 @@ impl<'a, T: Default + Parser<&'a str, T, nom::error::Error<&'a str>>>
         output.isa = obj;
         // functional group
         let (input, gs) = GS::parse(input)?;
-        let (input, t_obj) = T::parse(input)?;
+        let (input, segment) = T::parse(input)?;
         let (input, ge) = GE::parse(input)?;
         let fg = FunctionalGroup {
             gs,
-            segments: vec![t_obj],
+            segments: vec![segment],
             ge,
         };
         output.functional_group.push(fg);
