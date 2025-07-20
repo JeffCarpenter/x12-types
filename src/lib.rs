@@ -13,4 +13,10 @@ pub mod v005010;
 #[cfg(feature = "v005030")]
 pub mod v005030;
 
+#[cfg(feature = "v004060")]
+pub mod v004060;
+
+#[cfg(feature = "v006050")]
+pub mod v006050;
+
 pub mod util;

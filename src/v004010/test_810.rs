@@ -54,7 +54,6 @@ GE*1*810000263~
 IEA*1*810000263~
 "#;
     let (rest, obj) = Transmission::<_810>::parse(str).unwrap();
-    println!("{obj:?}");
     assert!(rest.is_empty());
     let s = format!("{obj}");
     assert_eq!(s, str);
@@ -89,7 +88,6 @@ GE*1*1~
 IEA*1*000000001~
 "#;
     let (rest, obj) = Transmission::<_810>::parse(str).unwrap();
-    println!("{obj:?}");
     assert!(rest.is_empty());
     let s = format!("{obj}");
     assert_eq!(s, str);
@@ -123,7 +121,6 @@ CTT*1~
 SE*23*0001~
 "#;
     let (rest, obj) = _810::parse(s).unwrap();
-    println!("{obj:?}");
     assert!(rest.is_empty());
     let s2 = format!("{obj}");
     assert_eq!(s, s2);

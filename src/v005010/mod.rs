@@ -47,9 +47,9 @@ impl<'a, T: Default + Parser<&'a str, T, nom::error::Error<&'a str>>>
         let mut loop_rest = input;
         let mut obj_arr = vec![];
         while peek(opt(ST::parse)).parse(loop_rest)?.1.is_some() {
-            let (input, t_obj) = T::parse(loop_rest)?;
+            let (input, segment) = T::parse(loop_rest)?;
             loop_rest = input;
-            obj_arr.push(t_obj);
+            obj_arr.push(segment);
         }
         let input = loop_rest;
         let (input, ge) = GE::parse(input)?;
