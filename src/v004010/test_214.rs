@@ -35,9 +35,7 @@ L11*99991280*DO~
 SE*27*0001~
 GE*1*2510~
 IEA*1*000002510~"#;
-    let (rest, obj) = Transmission::<_214>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_214>::parse(s).unwrap();
     assert!(rest.is_empty());
 }
 
@@ -73,8 +71,6 @@ AT8*G*L*351*0*1~
 SE*12*002~
 GE*2*001~
 IEA*1*001~"#;
-    let (rest, obj) = Transmission::<_214>::parse(s).unwrap();
-    println!("{rest}");
-    println!("{obj:?}");
+    let (rest, _obj) = Transmission::<_214>::parse(s).unwrap();
     assert!(rest.is_empty());
 }
