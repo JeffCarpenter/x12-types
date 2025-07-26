@@ -1,4 +1,4 @@
-use crate::v004010::Transmission;
+use crate::util::interchange::Transmission;
 use nom::bytes::complete::tag;
 use nom::bytes::complete::take_until;
 use nom::bytes::complete::take_while;
@@ -10,7 +10,12 @@ use nom::IResult;
 use nom::Parser as _;
 
 pub mod dt;
+pub mod interchange;
+pub mod macros;
 pub mod tm;
+
+#[cfg(test)]
+mod test_interchange;
 
 pub fn is_equal_payload<T: PartialEq>(src: &Transmission<T>, target: &Transmission<T>) -> bool {
     let src_group = &src.functional_group;

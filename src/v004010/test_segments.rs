@@ -7,8 +7,6 @@ fn test_st() {
         _02: "33233".to_string(),
     };
     let str = format!("{obj}");
-    println!("{str}");
-    println!("{obj}");
     let result = ST::parse(&str).unwrap();
     // not data left to process
     assert!(result.0.is_empty());
@@ -62,7 +60,6 @@ fn test_y3_parse_line() {
     // check actual object
     let obj = result.1;
     assert_eq!(obj._01, "ERXX412223");
-    println!("{obj:?}");
     assert_eq!(obj._10, Some("HP".to_string()));
 }
 
@@ -75,7 +72,6 @@ fn test_y3_parse_newline() {
     // check actual object
     let obj = result.1;
     assert_eq!(obj._01, "ERXX412223");
-    println!("{obj:?}");
     assert_eq!(obj._10, Some("HP".to_string()));
 }
 
@@ -94,9 +90,6 @@ fn test_y3() {
     let obj2 = result.1;
     assert!(result.0.is_empty());
     assert_eq!(obj2._10, Some("HP".to_string()));
-    println!("obj before: {obj:?}");
-    println!("obj str: {str}");
-    println!("obj  after: {obj2:?}");
 }
 
 #[test]
@@ -311,5 +304,4 @@ fn test_se() {
 // SE*17*33233~"#;
 //     // let str = str.replace("\n", "");
 //     let obj = parse_301(&str);
-//     println!("{:?}", obj);
 // }
