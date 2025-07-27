@@ -1,5 +1,5 @@
 use crate::util::Parser;
-use crate::v004060::{Transmission, TS358TruckConsistTripInformation};
+use crate::v004060::{TS358TruckConsistTripInformation, Transmission};
 
 #[test]
 fn parse_358_minimal() {
