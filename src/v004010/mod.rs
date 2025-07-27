@@ -57,11 +57,7 @@ impl<'a, T: Default + Parser<&'a str, T, nom::error::Error<&'a str>>>
         let (input, gs) = GS::parse(input)?;
         let (input, segments) = many0(T::parse).parse(input)?;
         let (input, ge) = GE::parse(input)?;
-        let fg = FunctionalGroup {
-            gs,
-            segments,
-            ge,
-        };
+        let fg = FunctionalGroup { gs, segments, ge };
         output.functional_group.push(fg);
         let (input, obj) = IEA::parse(input)?;
         output.iea = obj;
@@ -76,7 +72,7 @@ impl<T: Display> Display for Transmission<T> {
         for fg in &self.functional_group {
             lines.push(format!("{}", fg.gs));
             for segment in &fg.segments {
-                lines.push(format!("{}", segment));
+                lines.push(format!("{segment}"));
             }
             lines.push(format!("{}", fg.ge));
         }
