@@ -89,7 +89,6 @@ IEA*1*000012345~
                 _06: "000012345".to_string(),
                 _07: "X".to_string(),
                 _08: "005010X220A1".to_string(),
-                ..Default::default()
             },
             segments: vec![_834 {
                 st: ST {
