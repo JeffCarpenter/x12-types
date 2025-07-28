@@ -71,7 +71,6 @@ fn main() {
                 n3: vec![N3 {
                     _01: "1500 MADISON ST".to_string(),
                     _02: Some("F 2 STE 340".to_string()),
-                    ..Default::default()
                 }],
                 n4: Some(N4 {
                     _01: Some("PHILADELPHIA".to_string()),
@@ -209,5 +208,5 @@ fn main() {
         ..Default::default()
     };
     let obj = format!("{obj}");
-    println!("{}", obj);
+    println!("{obj}");
 }

@@ -20,7 +20,6 @@ fn parse_315() {
             _14: "0".to_string(),
             _15: "P".to_string(),
             _16: ">".to_string(),
-            ..Default::default()
         },
         functional_group: vec![FunctionalGroup {
             gs: GS {
@@ -304,7 +303,6 @@ fn test_315_defaults() {
             _14: "0".to_string(),
             _15: "P".to_string(),
             _16: ">".to_string(),
-            ..Default::default()
         },
         functional_group: vec![FunctionalGroup {
             gs: GS {

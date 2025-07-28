@@ -19,7 +19,7 @@ SE*10*0001~";
         body,
         "000000001",
     );
-    let (rest, obj) = Transmission::<TS350TruckCBPCustomsStatusInformation>::parse(s).unwrap();
+    let (rest, obj) = Transmission::<TS350TruckCBPCustomsStatusInformation>::parse(&s).unwrap();
     assert!(rest.is_empty());
     let segs = &obj.functional_group[0].segments[0];
     assert_eq!(segs.st._01, "350");
