@@ -10,7 +10,7 @@ P4*1803*20250101*1*M029~\
 LX*1~\
 SE*5*0001~";
     let s = wrap("GS*SO*AA*BB*20250101*0100*1*X*006050~", body, "000000010");
-    let (rest, obj) = Transmission::<TS309CBPCustomsManifest>::parse(s).unwrap();
+    let (rest, obj) = Transmission::<TS309CBPCustomsManifest>::parse(&s).unwrap();
     assert!(rest.is_empty());
     let segs = &obj.functional_group[0].segments[0];
     assert_eq!(segs.st._01, "309");

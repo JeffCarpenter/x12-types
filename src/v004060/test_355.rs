@@ -18,7 +18,7 @@ SE*9*0001~";
         body,
         "000000002",
     );
-    let (rest, obj) = Transmission::<TS355TruckAcceptanceRejection>::parse(s).unwrap();
+    let (rest, obj) = Transmission::<TS355TruckAcceptanceRejection>::parse(&s).unwrap();
     assert!(rest.is_empty());
     let segs = &obj.functional_group[0].segments[0];
     assert_eq!(segs.st._01, "355");

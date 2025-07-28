@@ -1,11 +1,9 @@
 //! v004060 represents select CBP truck specifications.
 
-use crate::util::interchange::FunctionalGroup;
 pub use crate::util::interchange::Transmission;
 use crate::util::Parser;
 use nom::{IResult, Parser as _};
 use serde::{Deserialize, Serialize};
-use std::fmt::Display;
 use x12_types_macros::DisplayX12;
 
 use crate::v004010::*;

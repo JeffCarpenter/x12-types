@@ -1,5 +1,3 @@
-#![cfg(test)]
-
 use crate::util::interchange::Transmission;
 use crate::v004010::{ISA, _309};
 
