@@ -91,7 +91,9 @@ pub struct TS350TruckCBPCustomsStatusInformation {
     pub se: SE,
 }
 
-impl<'a> Parser<&'a str, TS350TruckCBPCustomsStatusInformation, nom::error::Error<&'a str>> for TS350TruckCBPCustomsStatusInformation {
+impl<'a> Parser<&'a str, TS350TruckCBPCustomsStatusInformation, nom::error::Error<&'a str>>
+    for TS350TruckCBPCustomsStatusInformation
+{
     fn parse(input: &'a str) -> IResult<&'a str, TS350TruckCBPCustomsStatusInformation> {
         let mut output = TS350TruckCBPCustomsStatusInformation::default();
         let (rest, st) = ST::parse(input)?;
@@ -136,7 +138,9 @@ pub struct TS355TruckAcceptanceRejection {
     pub se: SE,
 }
 
-impl<'a> Parser<&'a str, TS355TruckAcceptanceRejection, nom::error::Error<&'a str>> for TS355TruckAcceptanceRejection {
+impl<'a> Parser<&'a str, TS355TruckAcceptanceRejection, nom::error::Error<&'a str>>
+    for TS355TruckAcceptanceRejection
+{
     fn parse(input: &'a str) -> IResult<&'a str, TS355TruckAcceptanceRejection> {
         let mut output = TS355TruckAcceptanceRejection::default();
         let (rest, st) = ST::parse(input)?;
@@ -187,7 +191,9 @@ pub struct TS358TruckConsistTripInformation {
     pub se: SE,
 }
 
-impl<'a> Parser<&'a str, TS358TruckConsistTripInformation, nom::error::Error<&'a str>> for TS358TruckConsistTripInformation {
+impl<'a> Parser<&'a str, TS358TruckConsistTripInformation, nom::error::Error<&'a str>>
+    for TS358TruckConsistTripInformation
+{
     fn parse(input: &'a str) -> IResult<&'a str, TS358TruckConsistTripInformation> {
         let mut output = TS358TruckConsistTripInformation::default();
         let (rest, st) = ST::parse(input)?;
@@ -217,4 +223,3 @@ impl<'a> Parser<&'a str, TS358TruckConsistTripInformation, nom::error::Error<&'a
         Ok((rest, output))
     }
 }
-

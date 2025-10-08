@@ -1,5 +1,5 @@
 use crate::util::Parser;
-use crate::v006050::{Transmission, TS309CBPCustomsManifest};
+use crate::v006050::{TS309CBPCustomsManifest, Transmission};
 
 #[test]
 fn parse_309_alias() {
