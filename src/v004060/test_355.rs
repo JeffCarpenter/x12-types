@@ -1,5 +1,5 @@
 use crate::util::Parser;
-use crate::v004060::{Transmission, TS355TruckAcceptanceRejection};
+use crate::v004060::{TS355TruckAcceptanceRejection, Transmission};
 
 #[test]
 fn parse_355_minimal() {
