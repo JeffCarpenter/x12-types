@@ -1,6 +1,16 @@
-# 0.8.6 2025-*-*
+# 0.9.1 2025-07-09
+
+* add support for 
+  * 005010/270 - Eligibility, Coverage or Benefit Inquiry
+  * 005010/271 - Eligibility, Coverage or Benefit Information
+  * 005010/276 - Health Claim Status Request
+  * 005010/820 - Payment Order/Remittance Advice
+  * 005010/999 - Implementation Acknowledgment
+
+# 0.9.0 2025-07-07
 
 * update to nom 8
+* add support for 005010/277 (thanks, [Dave Spadea](https://github.com/dspadea)), 005010/278
 
 # 0.8.5 2025-01-07
 

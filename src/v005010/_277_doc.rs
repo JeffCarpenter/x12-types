@@ -1,15 +1,13 @@
-use log::{error, trace};
-use serde::{Deserialize, Serialize};
-use x12_types_macros::DisplayX12;
-
+use super::{AMT, BHT, DTP, HL, N3, N4, NM1, PER, QTY, REF, SE, ST, STC, SVC, TRN};
 use crate::util::Parser;
+use log::{error, trace};
 use nom::{
     combinator::{opt, peek},
     multi::{many0, many1},
     IResult, Parser as _,
 };
-
-use super::{AMT, BHT, DTP, HL, N3, N4, NM1, PER, QTY, REF, SE, ST, STC, SVC, TRN};
+use serde::{Deserialize, Serialize};
+use x12_types_macros::DisplayX12;
 
 /// 277 - Health Care Claim Status
 ///
@@ -454,7 +452,7 @@ fn parse_2000_any(input: &str) -> IResult<&str, _277Generic2000Loop> {
     // parse the HL segment
 
     let (rest, hl_seg) = HL::parse(input)?;
-    trace!("Parsed HL: {}", hl_seg);
+    trace!("Parsed HL: {hl_seg}");
     match hl_seg._03.as_str() {
         "20" => parse_loop_2000_a(hl_seg, rest),
         "21" => parse_loop_2000_b(hl_seg, rest),
