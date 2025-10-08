@@ -53,7 +53,7 @@ impl<T: Display> Display for Transmission<T> {
         for fg in &self.functional_group {
             write!(f, "{}", fg.gs)?;
             for segment in &fg.segments {
-                write!(f, "{}", segment)?;
+                write!(f, "{segment}")?;
             }
             write!(f, "{}", fg.ge)?;
         }
