@@ -57,11 +57,7 @@ impl<'a, T: Default + Parser<&'a str, T, nom::error::Error<&'a str>>>
         let (input, gs) = GS::parse(input)?;
         let (input, segments) = many0(T::parse).parse(input)?;
         let (input, ge) = GE::parse(input)?;
-        let fg = FunctionalGroup {
-            gs,
-            segments,
-            ge,
-        };
+        let fg = FunctionalGroup { gs, segments, ge };
         output.functional_group.push(fg);
         let (input, obj) = IEA::parse(input)?;
         output.iea = obj;

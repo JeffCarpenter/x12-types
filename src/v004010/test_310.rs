@@ -12,8 +12,7 @@ fn test_310_transmission() {
 fn test_chars() {
     let str = "L5*1*NET WEIGHT . MOULDINGS OF MEDIUM DENSITY FIBERBO~\n";
     for x in str.chars() {
-        if x != '*' && (x.is_alphanumeric() || x.is_whitespace() || x.is_ascii_punctuation()) {
-        } 
+        if x != '*' && (x.is_alphanumeric() || x.is_whitespace() || x.is_ascii_punctuation()) {}
     }
 }
 
