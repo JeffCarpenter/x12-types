@@ -1,14 +1,9 @@
-#![cfg(test)]
-
 use crate::util::interchange::Transmission;
 use crate::v004010::{ISA, _309};
 
 fn wrap(prefix: &str, body: &str, ctrl: &str) -> String {
     format!(
-        "ISA*00*          *00*          *ZZ*TEST*ZZ*DEST*250101*0100*U*00400*{ctrl}*0*T*>~{prefix}{body}GE*1*1~IEA*1*{ctrl}~",
-        prefix = prefix,
-        body = body,
-        ctrl = ctrl
+        "ISA*00*          *00*          *ZZ*TEST*ZZ*DEST*250101*0100*U*00400*{ctrl}*0*T*>~{prefix}{body}GE*1*1~IEA*1*{ctrl}~"
     )
 }
 

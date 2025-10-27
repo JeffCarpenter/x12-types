@@ -1,9 +1,5 @@
 //! v006050 Custom CBP truck specifications.
 
-use crate::util::Parser;
-
-use crate::v004010::*;
-
 #[cfg(test)]
 mod test_309;
 
