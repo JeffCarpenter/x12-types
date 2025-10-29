@@ -1,5 +1,5 @@
 use crate::util::Parser;
-use crate::v004060::{Transmission, TS350TruckCBPCustomsStatusInformation};
+use crate::v004060::{TS350TruckCBPCustomsStatusInformation, Transmission};
 
 #[test]
 fn parse_350_minimal() {
